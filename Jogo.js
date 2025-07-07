@@ -1,4 +1,3 @@
-//TODO - Subir no Git hub
 const readline = require("readline"); 
 
 const rl = readline.createInterface({
