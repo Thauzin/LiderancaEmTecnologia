@@ -4,26 +4,35 @@ const rl = readline.createInterface({
     input : process.stdout, 
     output : process.stdout 
 });
+console.log("Bem Vindos ao jogo de advinhação! ")
 
 const aleatorio = Math.floor(Math.random() * 101);  // Math.floor para deixar os números exatos 
-let tentativas = 0; 
+let tentativas = 5; 
 let resposta;
 
 rl.on('line', (input)=> {
     resposta = parseInt(input); 
-    tentativas ++;
+    tentativas --;
     if(aleatorio === resposta){
-        console.log("Você acertou com " + tentativas + " tentativas! Parabens! ")
+        console.log("Você acertou com " + tentativas + " tentativas restantes! Parabens! ")
         rl.close;
     }
     else {
-        if(aleatorio > resposta) {
-            console.log("Dica: O número é maior")
+        if(tentativas <=5){
+            if(aleatorio > resposta) {
+                console.log("Dica: O número é maior")
+                console.log("Você tem "+ tentativas + " tentativas restantes")
+            }
+            else{
+                console.log("Dica: O número é menor")
+                console.log("Você tem "+ tentativas + " restantes")
+            }  
+            rl.prompt();
         }
-        else{
-            console.log("Dica: O número é menor")
-        }  
-        rl.prompt();
+        else {
+            console.log("Você perdeu... Número de tentativas excedidas!")
+        }
+
     }
 })
 
