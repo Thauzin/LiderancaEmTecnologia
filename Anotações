@@ -1,0 +1,28 @@
+const readline = require("readline"); 
+
+const rl = readline.createInterface({
+    input : process.stdout, 
+    output : process.stdout 
+});
+console.log("Bem Vindos ao jogo de advinhação! ")
+
+let entradas = 0;
+let num1;
+let num2; 
+
+rl.on('line', (input)=> {
+    var resposta = (input); 
+    if (entradas === 0){
+        num1 = resposta; 
+        entradas = 1; 
+        rl.prompt()
+    }
+    else if (entradas === 1){
+        num2 = resposta;
+        entradas = 2;
+        console.log("Sues numeros foram: "+ num1 + "e" + num2)
+    }
+
+})
+rl.setPrompt("Digite um número: ")
+rl.prompt(); 
