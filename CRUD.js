@@ -7,10 +7,11 @@ output: process.stdout
 
 let escolha = 0; 
 let atletas = [];
+let times = []; 
 
 function exibirmenu(){
         console.log("----------------------------------------")
-        rl.question('MENU \n 1 - Cadastrar \n 2 - Exibir \n 3 - Editar \n 4 - Remover \n', (opcao) => {
+        rl.question('MENU \n 1 - Cadastrar \n 2 - Exibir \n 3 - Editar \n 4 - Remover \n 5 - Criar times \n 6 - Verificar atletas por idade \n 7 - Verificar Times \n Escolha uma opção: ' , (opcao) => {
         escolha = parseInt(opcao)
         switch (escolha){
             case 1: 
@@ -25,6 +26,14 @@ function exibirmenu(){
             case 4: 
                 remover();
                 break;
+            case 5: 
+                criarTimes();
+                break;
+            case 6: 
+                verificarIdade();
+                break;
+            case 7: 
+                verificarTimes(); 
         } 
 })}
 
@@ -47,7 +56,7 @@ function exibir(){
     }
     else {
         for (let i = 0; i < atletas.length; i++) {
-            console.log(`\n ${i + 1}- FICHA: ${atletas[i].nome} que joga ${atletas[i].esporte} e tem ${atletas[i].idade} anos.`);
+            console.log(`${i + 1}- FICHA: ${atletas[i].nome} que participa ${atletas[i].esporte} e tem ${atletas[i].idade} anos.`);
         }
         exibirmenu();
     }
@@ -92,6 +101,83 @@ function editar(){
                         exibirmenu()
         })})})
         })
+    }
+}
+
+function criarTimes(){
+    let nometime;
+    let esporte;
+    let time = [];
+    console.log("------------- CRIAR TIMES ------------")
+    if(atletas.length === 0){
+        console.log("Não existem atletas cadastrados! ")
+        exibirmenu();
+    }
+    else {
+        rl.question("Crie um nome para seu time: ", (nometime)=> {
+            ("Verificação de atletas cadastrados \n")
+            for (let i = 0; i < atletas.length; i++) {
+                console.log(`\n ${i} - ${atletas[i].nome}`);
+            }
+            rl.question("Selecione o atleta: ",(atletas) => {
+                time.slice(atletas.nome);
+                times.push({nome: nometime,pessoas: time});
+                console.log("Time criado com sucesso!" +nometime);
+                exibirmenu();
+        })
+    })
+    }
+    }
+
+function verificarIdade(){
+    let num;
+    let atletaNovo = atletas[0];
+
+    if (atletas.length === 0 ){
+        console.log("Não existem atletas cadastrados! ")
+        exibirmenu();
+    }
+    else {
+    rl.question(" Selecione 1 - Atleta mais novo \n Selecione 2 - Atleta mais velho \n" , (num)=> {
+        let tipo = parseInt(num)
+        if (tipo === 1){
+            for (let i = 0; i < atletas.length; i++){
+                if (parseInt(atletas[i].idade)< parseInt(atletaNovo.idade)){
+                    atletaNovo = atletas[i];
+                }
+            }
+            console.log("O atleta mais novo é: "+atletaNovo.nome)
+        }
+        else if (tipo === 2){
+            for (let i = 0; i < atletas.length; i++){
+                if (parseInt(atletas[i].idade) > parseInt(atletaNovo.idade)){
+                    atletaNovo = atletas[i];
+                }
+            }
+            console.log("O atleta mais velho é: "+atletaNovo.nome)
+        }
+        else {
+            console.log("Por favor digite uma opção valida!")
+            verificarIdade(); 
+        }
+    
+    exibirmenu();
+    })
+    }
+}
+
+function verificarTimes(){
+    console.log("------------- EXIBIR TIMES------------")
+    if(times.length === 0){
+        console.log("Não existem times cadastrados! ")
+        exibirmenu();
+    }
+    else {
+        for (let i = 0; i < times.length; i++) {
+            console.log(`${i + 1}- TIME: ${times[i].nome} Atletas: ${times[i].pessoas}`);
+            //problemas nessa parte (não mostra as pessoas)
+        }
+        exibirmenu();
     }
 }
 
