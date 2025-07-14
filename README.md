@@ -7,3 +7,6 @@ A cada tentativa, o programa informa se o número escolhido pelo usuário é mai
 
 Este é um pequeno jogo interativo de linha de comando feito com Node.js. O usuário insere dois números e escolhe uma operação matemática para realizar entre eles. Primeiro o programa solicitará que você digite dois números e depois que você escolha uma operação, após escolher o resultado será exibido na tela. 
 
+**3 - CRUD (Crud.js)**
+
+Esse é um exercicio para treinar o CRUD (Create, Read, Update e Delete) usando uma tela de cadastro de atletas onde é possivel ver os atletas cadastrados, editar alguma informação do atleta e deletar algum atleta de acordo com sua posição no vetor. 
