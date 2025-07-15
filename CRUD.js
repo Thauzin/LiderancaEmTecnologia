@@ -8,10 +8,11 @@ output: process.stdout
 let escolha = 0; 
 let atletas = [];
 let times = []; 
+let atletaNovo = [];
 
 function exibirmenu(){
         console.log("----------------------------------------")
-        rl.question('MENU \n 1 - Cadastrar \n 2 - Exibir \n 3 - Editar \n 4 - Remover \n 5 - Criar times \n 6 - Verificar atletas por idade \n 7 - Verificar Times \n Escolha uma opção: ' , (opcao) => {
+        rl.question('MENU \n 1 - Cadastrar \n 2 - Exibir Atletas \n 3 - Editar \n 4 - Remover \n 5 - Criar times \n 6 - Verificar atletas por idade \n 7 - Exibir Times \n 8 - Buscar Atletas ou esporte \n Escolha uma opção: ' , (opcao) => {
         escolha = parseInt(opcao)
         switch (escolha){
             case 1: 
@@ -106,7 +107,6 @@ function editar(){
 
 function criarTimes(){
     let nometime;
-    let esporte;
     let time = [];
     console.log("------------- CRIAR TIMES ------------")
     if(atletas.length === 0){
@@ -114,20 +114,34 @@ function criarTimes(){
         exibirmenu();
     }
     else {
-        rl.question("Crie um nome para seu time: ", (nometime)=> {
-            ("Verificação de atletas cadastrados \n")
-            for (let i = 0; i < atletas.length; i++) {
-                console.log(`\n ${i} - ${atletas[i].nome}`);
-            }
-            rl.question("Selecione o atleta: ",(atletas) => {
-                time.slice(atletas.nome);
-                times.push({nome: nometime,pessoas: time});
-                console.log("Time criado com sucesso!" +nometime);
-                exibirmenu();
-        })
-    })
+            rl.question("Adicionar atleta? (s/n)", (select)=>{
+                    
+                if (select === "n"){
+                    rl.question("Crie um nome para seu time: ", (nometime)=> {
+                    times.push({nome: nometime,pessoas: atletaNovo});
+                    console.log("Time criado com sucesso!");
+                    atletaNovo = [];
+                    exibirmenu();
+                })
+                }
+
+                else if (select === "s" ){
+                    adicionarAtleta();
+                }
+
+            })
+    }}
+function adicionarAtleta(){
+    ("Verificação de atletas cadastrados \n")
+    for (let i = 0; i < atletas.length; i++) {
+        console.log(`\n ${i} - ${atletas[i].nome}`);
     }
-    }
+    rl.question("Selecione o atleta: ",(num) => {
+        atletaNovo.push(atletas[num].nome)
+        criarTimes();
+})
+
+}
 
 function verificarIdade(){
     let num;
@@ -174,8 +188,7 @@ function verificarTimes(){
     }
     else {
         for (let i = 0; i < times.length; i++) {
-            console.log(`${i + 1}- TIME: ${times[i].nome} Atletas: ${times[i].pessoas}`);
-            //problemas nessa parte (não mostra as pessoas)
+            console.log(`${i + 1}- TIME: ${times[i].nome} | ATLETAS: ${times[i].pessoas}`);
         }
         exibirmenu();
     }
@@ -183,5 +196,4 @@ function verificarTimes(){
 
 exibirmenu();
 
-
-
+//const resultado = pessoas.filter(pessoa => pessoa.email === emailBuscado)
