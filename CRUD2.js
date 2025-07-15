@@ -6,7 +6,6 @@ output: process.stdout
 })
 
 let livros = []; 
-let livros2 = [];
 
 function exibirmenu(){
     console.log("----------------------------------------")
@@ -166,10 +165,22 @@ function remover(){
 
 function procurar(){
     console.log("----------------------------------------")
-    rl.question("Procurar por: \n1 - Gênero \n2 - Ano \n3 - Lido \n4 - Não Lido \n5 - Voltar ao MENU", (buscar)=>{
+    rl.question("Procurar por: \n1 - Gênero \n2 - Ano \n3 - Lido \n4 - Não Lido \n5 - Voltar ao MENU \nEscolha uma opção: ", (buscar)=>{
         switch(buscar){
             case "1": 
             procurarPorGenero();
+            break;
+            case "2":
+            porAno();
+            break;
+            case "3":
+            lidos();
+            break;
+            case "4":
+            NaoLidos();
+            break;
+            case "5":
+            exibirmenu();
             break;
         }
     })
@@ -178,6 +189,7 @@ function procurar(){
 }
 
 function procurarPorGenero(){
+    let livros2 = [];
     rl.question("Digite o gênero de livros que você deseja procurar: ", (genero2)=> {
         for (i = 0; i < livros.length; i++){
             if (livros[i].genero === genero2){
@@ -186,16 +198,79 @@ function procurarPorGenero(){
         }
         if (livros2.length === 0){
             console.log("Não existem livros desse gênero cadastrados! ")
-            exibirmenu();
+            procurar();
         }
         else{
         console.log(`Esses são os livros do gênero: ${genero2}`)
         for (i=0; i < livros2.length; i++){
             console.log(`${i+1} - ${livros2[i].nome}`)
         }
-        exibirmenu()
+        procurar()
     }
     })
 }
+
+function porAno(){
+    livroAno = [];
+    rl.question("Digite o ano do livros que você deseja procurar: ", (ano2)=> {
+        for (i = 0; i < livros.length; i++){
+            if (livros[i].ano === ano2){
+                livroAno.push(livros[i])
+            }
+        }
+        if (livroAno.length === 0){
+            console.log("Não existem livros desse ano cadastrados! ")
+            procurar();
+        }
+        else{
+        console.log(`Esses são os livros do gênero: ${ano2}`)
+        for (i=0; i < livroAno.length; i++){
+            console.log(`${i+1} - ${livroAno[i].nome}`)
+        }
+        procurar()
+    }
+    })
+}
+
+function lidos(){
+    livrosLidos = [];
+        for (i = 0; i < livros.length; i++){
+            if (livros[i].lido === "Lido"){
+                livrosLidos.push(livros[i])
+            }
+        }
+        if (livrosLidos.length === 0){
+            console.log("Não existem livros lidos cadastrados! ")
+            procurar();
+        }
+        else{
+        console.log(`Esses são os livros lidos da sua biblioteca: `)
+        for (i=0; i < livrosLidos.length; i++){
+            console.log(`${i+1} - ${livrosLidos[i].nome}`)
+        }
+        procurar()
+    }
+}
+
+function NaoLidos(){
+    livrosNLidos = [];
+        for (i = 0; i < livros.length; i++){
+            if (livros[i].lido === "Quero ler"){
+                livrosNLidos.push(livros[i])
+            }
+        }
+        if (livrosNLidos.length === 0){
+            console.log("Não existem livros não lidos cadastrados! ")
+            procurar();
+        }
+        else{
+        console.log(`Esses são os livros não lidos da sua biblioteca: `)
+        for (i=0; i < livrosNLidos.length; i++){
+            console.log(`${i+1} - ${livrosNLidos[i].nome}`)
+        }
+        procurar()
+    }
+}
+
 
 exibirmenu();
