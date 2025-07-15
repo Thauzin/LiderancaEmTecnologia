@@ -12,7 +12,7 @@ let atletaNovo = [];
 
 function exibirmenu(){
         console.log("----------------------------------------")
-        rl.question('MENU \n 1 - Cadastrar \n 2 - Exibir Atletas \n 3 - Editar \n 4 - Remover \n 5 - Criar times \n 6 - Verificar atletas por idade \n 7 - Exibir Times \n 8 - Buscar Atletas ou esporte \n Escolha uma opção: ' , (opcao) => {
+        rl.question('MENU \n 1 - Cadastrar \n 2 - Exibir Atletas \n 3 - Editar \n 4 - Remover \n 5 - Criar times \n 6 - Verificar atletas por idade \n 7 - Exibir Times \n 8 - Buscar Atletas por esporte \n Escolha uma opção: ' , (opcao) => {
         escolha = parseInt(opcao)
         switch (escolha){
             case 1: 
@@ -35,6 +35,10 @@ function exibirmenu(){
                 break;
             case 7: 
                 verificarTimes(); 
+                break;
+            case 8: 
+                buscarPorEsporte();
+                break;
         } 
 })}
 
@@ -194,6 +198,14 @@ function verificarTimes(){
     }
 }
 
+function buscarPorEsporte(){
+    console.log("------------- BUSCAR ATLETAS ------------")
+    rl.question("Digite o esporte que deseja pesquisar: ", (esp)=>{
+        const resultado = atletas.filter(atletas => atletas.esporte === esp);
+        console.log(resultado)
+        exibirmenu();
+    })
+}
+
 exibirmenu();
 
-//const resultado = pessoas.filter(pessoa => pessoa.email === emailBuscado)
