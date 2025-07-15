@@ -10,3 +10,7 @@ Este é um pequeno jogo interativo de linha de comando feito com Node.js. O usu�
 **3 - CRUD (Crud.js)**
 
 Esse é um exercicio para treinar o CRUD (Create, Read, Update e Delete) usando uma tela de cadastro de atletas onde é possivel ver os atletas cadastrados, editar alguma informação do atleta e deletar algum atleta de acordo com sua posição no vetor. 
+
+**4 - CRUD de biblioteca de livros (CRUD2.js)**
+
+Um CRUD com mais funcionalidades, simulando uma biblioteca de livros, onde o úsuario pode cadastrar, exibir, remover, editar e até mesmo procurar seu livro por categorias diferentes. 
