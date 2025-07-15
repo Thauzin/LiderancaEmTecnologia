@@ -138,7 +138,7 @@ function criarTimes(){
 function adicionarAtleta(){
     ("Verificação de atletas cadastrados \n")
     for (let i = 0; i < atletas.length; i++) {
-        console.log(`\n ${i} - ${atletas[i].nome}`);
+        console.log(`${i} - ${atletas[i].nome}`);
     }
     rl.question("Selecione o atleta: ",(num) => {
         atletaNovo.push(atletas[num].nome)
