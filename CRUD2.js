@@ -27,8 +27,8 @@ function exibirmenu(){
         case 5:
             procurar();
             break;
-    } 
-})}
+}})
+}
 
 function cadastrar(){
     console.log("----------------------------------------")
