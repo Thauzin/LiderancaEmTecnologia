@@ -1,4 +1,4 @@
-**Para usar esse projeto, baixe e escreva "node nomedoprojeto.js" no terminal**
+# Para rodar os projetos, baixe e escreva "node nomedoprojeto.js" no terminal
 
 **1 - Jogo de Adivinhação de Números (Jogo.js)**
 
