@@ -1,3 +1,5 @@
+**Para usar esse projeto, baixe e escreva "node nomedoprojeto.js" no terminal**
+
 **1 - Jogo de Adivinhação de Números (Jogo.js)**
 
 Este é um simples jogo de adivinhação onde o computador escolhe um número aleatório, e o usuário precisa tentar adivinhar qual é esse número dentro de 5 tentativas. 
