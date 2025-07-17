@@ -1,11 +1,7 @@
-Excelente ideia! Um **to-do list focado em projetos de programação** tem muito potencial — você pode personalizar o app para que ele organize tarefas típicas de um dev, como:
-
 * Criar e gerenciar projetos.
 * Dividir tarefas por linguagem (Python, JS, etc).
 * Acompanhar progresso (To Do → Doing → Done).
 * Guardar links de referência, anotações, deadlines.
-
----
 
 ## 💡 Proposta de App: **DevTasks – Gerenciador de Projetos de Programação**
 
@@ -18,8 +14,6 @@ Excelente ideia! Um **to-do list focado em projetos de programação** tem muito
 | **Tela de Projeto**  | Lista de tarefas por projeto.                      |
 | **Add Tarefa**       | Adicionar nova tarefa, linguagem, status.          |
 | **Add Projeto**      | Criar novo projeto com nome, descrição, linguagem. |
-
----
 
 ## 📁 Estrutura de dados (Firebase Firestore)
 
@@ -43,8 +37,6 @@ Você pode estruturar assim:
   - userId: referência ao usuário logado
 ```
 
----
-
 ## 📊 Possíveis recursos adicionais:
 
 * Filtros por linguagem ou status.
@@ -53,7 +45,6 @@ Você pode estruturar assim:
 * Marcação de tarefas favoritas.
 * Link para repositório GitHub.
 
----
 
 ## 🛠️ Como criar isso no FlutterFlow gratuito:
 
@@ -77,7 +68,7 @@ Você pode estruturar assim:
 * Ao clicar num projeto, navegar para as tarefas dele.
 * Cada tarefa pode ter:
 
-  * Um menu dropdown para mudar o status.
+  * Um menu dropdown para mudar o status (backend, front, database, etc...).
   * Checkbox para marcar como concluída.
   * Campo de linguagem (opcional).
 
@@ -93,10 +84,3 @@ Você pode:
 
 ---
 
-Se quiser, posso te ajudar com:
-
-* Esboço visual das telas.
-* Estrutura no Firebase.
-* Como fazer filtros ou barra de progresso no FlutterFlow.
-
-Quer que eu monte um modelo base para esse projeto com alguns campos e telas sugeridas?
