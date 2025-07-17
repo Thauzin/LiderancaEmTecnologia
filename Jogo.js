@@ -13,7 +13,7 @@ let acertos = 0;
 let jogados = 0; 
 let dificuldade;
 
-rl.question("\n1 - Fácil \n2 - Médio \n3 - Díficil \nDigite o nível de dificuldade:",(dificuldade)=>{
+rl.question("\n1 - Fácil (10 tentativas) \n2 - Médio (5 tentativas) \n3 - Díficil (3 tentativas) \nDigite o nível de dificuldade:",(dificuldade)=>{
     if(dificuldade === "1"){
         tentativas = 10;
         jogo();
