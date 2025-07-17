@@ -1,0 +1,102 @@
+Excelente ideia! Um **to-do list focado em projetos de programação** tem muito potencial — você pode personalizar o app para que ele organize tarefas típicas de um dev, como:
+
+* Criar e gerenciar projetos.
+* Dividir tarefas por linguagem (Python, JS, etc).
+* Acompanhar progresso (To Do → Doing → Done).
+* Guardar links de referência, anotações, deadlines.
+
+---
+
+## 💡 Proposta de App: **DevTasks – Gerenciador de Projetos de Programação**
+
+### 📱 Funcionalidades principais:
+
+| Tela                 | O que ela faz                                      |
+| -------------------- | -------------------------------------------------- |
+| **Login (opcional)** | Login/cadastro com Firebase Auth.                  |
+| **Dashboard**        | Lista de projetos de programação.                  |
+| **Tela de Projeto**  | Lista de tarefas por projeto.                      |
+| **Add Tarefa**       | Adicionar nova tarefa, linguagem, status.          |
+| **Add Projeto**      | Criar novo projeto com nome, descrição, linguagem. |
+
+---
+
+## 📁 Estrutura de dados (Firebase Firestore)
+
+Você pode estruturar assim:
+
+```yaml
+/projetos (collection)
+  - id
+  - nome: "API Flask"
+  - linguagem: "Python"
+  - descricao: "API para sistema de pedidos"
+  - userId: referência ao usuário logado
+
+/tarefas (collection)
+  - id
+  - projetoId: referência ao projeto
+  - titulo: "Criar endpoint de login"
+  - status: "To Do" | "Doing" | "Done"
+  - linguagem: "Python"
+  - prioridade: "Alta", "Média", "Baixa"
+  - userId: referência ao usuário logado
+```
+
+---
+
+## 📊 Possíveis recursos adicionais:
+
+* Filtros por linguagem ou status.
+* Cores diferentes por linguagem.
+* Barra de progresso por projeto.
+* Marcação de tarefas favoritas.
+* Link para repositório GitHub.
+
+---
+
+## 🛠️ Como criar isso no FlutterFlow gratuito:
+
+### 1. Crie telas:
+
+* `LoginPage` (opcional).
+* `DashboardPage` (lista de projetos).
+* `ProjectPage` (lista de tarefas daquele projeto).
+* `AddProjectPage`.
+* `AddTaskPage`.
+
+### 2. Use Firebase Firestore:
+
+* Crie 2 coleções: `projetos` e `tarefas`.
+* Ative autenticação com e-mail/senha.
+* Configure regras para cada usuário ver só seus dados.
+
+### 3. Lógica:
+
+* Quando abrir `Dashboard`, exibir só projetos do usuário.
+* Ao clicar num projeto, navegar para as tarefas dele.
+* Cada tarefa pode ter:
+
+  * Um menu dropdown para mudar o status.
+  * Checkbox para marcar como concluída.
+  * Campo de linguagem (opcional).
+
+---
+
+## 🧪 Preview direto no FlutterFlow:
+
+Você pode:
+
+* Ver os dados em tempo real com Firestore.
+* Adicionar e editar tarefas com Actions.
+* Usar campos dinâmicos com visibilidade condicional (ex: mostrar cor por linguagem).
+
+---
+
+Se quiser, posso te ajudar com:
+
+* Esboço visual das telas.
+* Estrutura no Firebase.
+* Como fazer filtros ou barra de progresso no FlutterFlow.
+
+Quer que eu monte um modelo base para esse projeto com alguns campos e telas sugeridas?
