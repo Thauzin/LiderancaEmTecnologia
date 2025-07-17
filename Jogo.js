@@ -7,11 +7,28 @@ const rl = readline.createInterface({
 console.log("Bem Vindos ao jogo de advinhação! ")
 
 var aleatorio = Math.floor(Math.random() * 101);  // Math.floor para deixar os números exatos 
-let tentativas = 5; 
+let tentativas; 
 let resposta;
 let acertos = 0;
 let jogados = 0; 
+let dificuldade;
 
+rl.question("\n1 - Fácil \n2 - Médio \n3 - Díficil \nDigite o nível de dificuldade:",(dificuldade)=>{
+    if(dificuldade === "1"){
+        tentativas = 10;
+        jogo();
+    }
+    else if(dificuldade === "2"){
+        tentativas = 5;
+        jogo();
+    }
+    else if(dificuldade === "3"){
+        tentativas = 3;
+        jogo();
+    }
+})
+
+function jogo(){
 rl.on('line', (input)=> {
     resposta = parseInt(input); 
     if(resposta <= 0 || resposta <= 100){
@@ -59,3 +76,4 @@ else{
 rl.setPrompt("Digite um número entre 0 e 100: ")
 rl.prompt(); 
 
+}
